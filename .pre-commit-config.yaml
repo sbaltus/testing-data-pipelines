@@ -1,0 +1,68 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-toml
+        stages:
+          - commit
+          - push
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        stages:
+          - commit
+          - push
+        language: system
+        entry: black --check
+        types:
+          - python
+      - id: flake8
+        name: flake8
+        stages:
+          - commit
+          - push
+        language: system
+        entry: flake8 pipelines
+        types:
+          - python
+        exclude: setup.py
+      - id: isort
+        name: isort
+        entry: isort
+        args: ["--check"]
+        language: system
+        types:
+          - python
+      - id: pytype
+        name: pytype
+        stages:
+          - commit
+          - push
+        language: system
+        entry: pytype --config setup.cfg --verbosity 0 --jobs auto --protocols pipelines
+        types:
+          - python
+      - id: bandit
+        name: bandit
+        stages:
+          - commit
+          - push
+        language: system
+        entry: bandit -r pipelines
+        types:
+          - python
+        exclude: tests
+      - id: pylint
+        name: pylint
+        stages:
+          - commit
+          - push
+        language: system
+        entry: poetry run pylint
+        args: ['--rcfile', '.rcfile']
+        types:
+          - python
+        exclude: tests
+
