@@ -11,6 +11,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"
+apache-airflow = "^2.4.1"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.20.0"
