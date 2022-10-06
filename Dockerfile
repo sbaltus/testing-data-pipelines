@@ -19,7 +19,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
 ################
 # Final image
 ################
-FROM apache/airflow:2.4.1-python3.10
+FROM apache/airflow:2.3.4-python3.10
 
 ARG WHL=testing_data_pipelines-*-py3-none-any.whl
 ARG TARGET=/opt/project
