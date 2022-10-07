@@ -162,4 +162,3 @@ Project Link: [https://github.com/sbaltus/testing-data-pipelines](https://github
 [license-url]: https://github.com/sbaltus/testing-data-pipelines/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/stéphanie-baltus
-
