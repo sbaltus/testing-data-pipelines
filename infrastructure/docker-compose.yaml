@@ -71,6 +71,10 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
+    watcher:
+      condition: service_healthy
+    minio:
+      condition: service_healthy
 
 services:
   postgres:
@@ -274,6 +278,35 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+  watcher:
+    image: watcher-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: watcher
+    volumes:
+      - watcher-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+    restart: always
+  minio:
+    image: quay.io/minio/minio
+    expose:
+      - 9000:9000
+      - 9001:9001
+    healthcheck:
+      test: ["CMD", "curl", "-I", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 30s
+      retries: 50
+    volumes:
+      - minio-volume:/data
+    command: server --console-address ":9001" /data
 
 volumes:
   postgres-db-volume:
+  watcher-db-volume:
+  minio-volume:
+
