@@ -292,8 +292,11 @@ services:
       retries: 5
     restart: always
   minio:
-    image: quay.io/minio/minio
+    image: minio-for-airflow
     expose:
+      - "9000"
+      - "9001"
+    ports:
       - 9000:9000
       - 9001:9001
     healthcheck:
@@ -303,7 +306,7 @@ services:
       retries: 50
     volumes:
       - minio-volume:/data
-    command: server --console-address ":9001" /data
+    command: server /data --console-address ":9001"
 
 volumes:
   postgres-db-volume:
