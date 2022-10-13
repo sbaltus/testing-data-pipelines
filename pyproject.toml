@@ -34,6 +34,8 @@ pytest-mock = "^3.10.0"
 requests-mock = "^1.10.0"
 moto = {version = "^4.0.6", extras = ["s3"]}
 testcontainers = "^3.7.0"
+hypothesis = "^6.56.2"
+Faker = "^15.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
