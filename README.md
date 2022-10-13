@@ -78,24 +78,25 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+To contribute to this project, you will need: 
+
+- python 3.10 
+- poetry `curl -sSL https://install.python-poetry.org | python3 -`
+- docker & docker compose
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/sbaltus/testing-data-pipelines.git
    ```
-3. Install python packages
+2.Install python packagesn in virtual environment 
    ```sh
+   poetry config virtualenvs.create true 
+   poetry config virtualenvs.in-project true
    poetry install
    ```
-4. Enter your API in `TODO`
+3. Optionally, you can get an API KEY on [Open Weather Map](https://openweathermap.org/api/air-pollution)
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
