@@ -71,6 +71,10 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
+    watcher:
+      condition: service_healthy
+    minio:
+      condition: service_healthy
 
 services:
   postgres:
@@ -274,6 +278,21 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+  watcher:
+    image: watcher-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: watcher
+    volumes:
+      - watcher-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+    restart: always
 
 volumes:
   postgres-db-volume:
+  watcher-db-volume:
+

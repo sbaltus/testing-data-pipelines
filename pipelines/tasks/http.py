@@ -19,7 +19,6 @@ def download_and_store_to_s3(
     filename: str,
     s3: BaseClient | None = None,
     bucket=DEFAULT_S3_BUCKET,
-    s3_hook: S3Hook | None = None,
 ) -> str:
     """Download URL content and store it on s3."""
     response = requests.get(url, timeout=2)
