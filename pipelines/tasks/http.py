@@ -46,7 +46,7 @@ def get_pollution_data_for_point(
     response = requests.get(url, timeout=2)
     response.raise_for_status()
     content = response.json()
-    if len(content["list"]) != 1:
+    if len(content) == 0 or len(content["list"]) != 1:
         raise ValueError("unprocessable payload")
 
     poll = PollutionFromOpenWeather(
