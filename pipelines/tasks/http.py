@@ -2,7 +2,6 @@ import datetime
 
 import boto3
 import requests
-from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from botocore.client import BaseClient
 
 from pipelines import DEFAULT_S3_BUCKET, OPENWEATHER_API_KEY
@@ -40,8 +39,10 @@ def get_pollution_data_for_point(
     department_id: int,
 ) -> PollutionForPoint:
     start = int(start_date.timestamp())
-    url = f"https://api.openweathermap.org/data/2.5/air_pollution/history?lat={lat}&lon={long}&start={start}" \
-          f"&end={start}&appid={OPENWEATHER_API_KEY}"
+    url = (
+        f"https://api.openweathermap.org/data/2.5/air_pollution/history?lat={lat}&lon={long}&start={start}"
+        f"&end={start}&appid={OPENWEATHER_API_KEY}"
+    )
     response = requests.get(url, timeout=2)
     response.raise_for_status()
     content = response.json()
