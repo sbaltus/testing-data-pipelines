@@ -12,7 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"
 boto = "^2.49.0"
-apache-airflow = "2.3.4"
+apache-airflow = {version = "2.3.4", extras = ["password", "cncf.kubernetes"]}
 boto3 = "^1.24.87"
 pandas = "^1.5.0"
 geopandas = "^0.11.1"
