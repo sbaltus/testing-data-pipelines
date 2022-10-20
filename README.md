@@ -60,11 +60,12 @@ This codebase is here to help you train to test data pipelines.
 
 ### Prerequisites
 
-To contribute to this project, you will need: 
+To contribute to follow the test workshop, you will need: 
 
-- python 3.10 
-- poetry `curl -sSL https://install.python-poetry.org | python3 -`
+- python 3.9+
 - docker & docker compose
+- [OPTIONAL] poetry `curl -sSL https://install.python-poetry.org | python3 -`
+
 
 ### Installation
 
@@ -72,13 +73,15 @@ To contribute to this project, you will need:
    ```sh
    git clone https://github.com/sbaltus/testing-data-pipelines.git
    ```
-2.Install python packagesn in virtual environment 
-   ```sh
+2.Install python packages in virtual environment 
+   
+   Simply run `make setup` if you don't have poetry. 
+   Else: 
+   ```sh # with poetry 
    poetry config virtualenvs.create true 
    poetry config virtualenvs.in-project true
    poetry install
    ```
-3. Optionally, you can get an API KEY on [Open Weather Map](https://openweathermap.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
