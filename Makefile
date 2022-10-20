@@ -2,7 +2,6 @@
 setup:
 	python3 -m venv venv
 	source venv/bin/activate && pip install -r requirements.txt && pip install -r requirements-dev.txt
-	docker build -t pipelines-airflow-2.3.4 .
 	docker build -t watcher-postgres infrastructure/database/
 
 PHONY: run
