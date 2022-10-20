@@ -20,6 +20,7 @@ pyarrow = "^9.0.0"
 psycopg2-binary = "^2.9.4"
 GeoAlchemy2 = "^0.12.5"
 apache-airflow-providers-amazon = "^6.0.0"
+apache-airflow-providers-postgres = "^5.2.2"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.20.0"
