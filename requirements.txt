@@ -99,7 +99,7 @@ cron-descriptor==1.2.31
     # via apache-airflow
 croniter==1.3.7
     # via apache-airflow
-cryptography==38.0.2
+cryptography==39.0.1
     # via apache-airflow
 decorator==5.1.1
     # via jsonpath-ng
