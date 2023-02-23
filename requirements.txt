@@ -211,7 +211,7 @@ mako==1.2.3
     # via alembic
 markdown==3.4.1
     # via apache-airflow
-markdown-it-py==2.1.0
+markdown-it-py==2.2.0
     # via
     #   apache-airflow
     #   mdit-py-plugins
