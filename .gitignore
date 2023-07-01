@@ -132,8 +132,3 @@ dmypy.json
 # IDE config
 .idea
 .vscode
-
-tests/dags
-tests/operators
-tests/tasks
-tests/conftest.py
